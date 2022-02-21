@@ -1,4 +1,4 @@
-# Lab 2: YOUR_FIRSTNAME LASTNAMEE
+# Lab 2: Marek Černý, 230235
 
 ### 2-bit comparator
 
@@ -29,8 +29,8 @@
         report "Stimulus process started" severity note;
 
         -- First test case
-        s_b <= "BCD_OF_YOUR_SECOND_LAST_ID_DIGIT"; -- Such as "0101" if ID = xxxx56
-        s_a <= "BCD_OF_YOUR_LAST_ID_DIGIT";        -- Such as "0110" if ID = xxxx56
+        s_b <= 0011; 
+        s_a <= 0101;   
         wait for 100 ns;
         -- Expected output
         assert ((s_B_greater_A = 'WRITE_CORRECT_VALUE_HERE') and
