@@ -1,6 +1,6 @@
 # Lab 2: Marek Černý, 230235
 
-## Preparation tasks (done before the lab at home)
+### Preparation tasks (done before the lab at home)
 
 *Digital* or *Binary comparator* compares the digital signals A, B presented at input terminal and produce outputs depending upon the condition of those inputs.
 
