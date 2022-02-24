@@ -32,13 +32,17 @@
 
 1. Karnaugh maps for other two functions:
 
+   Equal:
+
+   ![K-maps](images/K-map_equal.png)
+
    Greater than:
 
-   ![K-maps](images/kmap_empty.png)
+   ![K-maps](images/K-map_greater.png)
 
    Less than:
 
-   ![K-maps](images/kmap_empty.png)
+   ![K-maps](images/K-map_less.png)
 
 2. Equations of simplified SoP (Sum of the Products) form of the "greater than" function and simplified PoS (Product of the Sums) form of the "less than" function.
 
