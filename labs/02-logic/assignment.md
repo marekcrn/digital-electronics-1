@@ -43,6 +43,10 @@
 2. Equations of simplified SoP (Sum of the Products) form of the "greater than" function and simplified PoS (Product of the Sums) form of the "less than" function.
 
    ![Logic functions](images/comparator_min.png)
+   
+3. Link to your public EDA Playground example:
+
+   [https://www.edaplayground.com/x/vTu6](https://www.edaplayground.com/x/vTu6)
 
 ### 4-bit comparator
 
@@ -79,4 +83,5 @@
 
 3. Link to your public EDA Playground example:
 
-   [https://www.edaplayground.com/x/vTu6](https://www.edaplayground.com/x/vTu6)
+   [https://www.edaplayground.com/x/DAta](https://www.edaplayground.com/x/DAta)
+   
