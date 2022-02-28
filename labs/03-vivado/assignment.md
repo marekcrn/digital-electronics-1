@@ -3,6 +3,7 @@
 ### Preparation tasks (done before the lab at home)
 
 ![schematic](images/schema.png)
+![schematic](images/nexys_A7.png)
 
 ### Two-bit wide 4-to-1 multiplexer
 
