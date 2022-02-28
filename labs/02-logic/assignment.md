@@ -46,7 +46,7 @@
 
 2. Equations of simplified SoP (Sum of the Products) form of the "greater than" function and simplified PoS (Product of the Sums) form of the "less than" function.
 
-   ![Logic functions](images/comparator_min.png)
+   ![Logic functions](images/functions.png)
    
 3. Link to your public EDA Playground example:
 
@@ -82,8 +82,12 @@
 ```
 
 2. Text console screenshot during your simulation, including reports.
-
-   ![your figure]()
+   
+   correct output:
+   ![console](images/outpuc_correct.png)
+   
+   incorrect output:
+   ![console](images/output_incorrect.png)
 
 3. Link to your public EDA Playground example:
 
