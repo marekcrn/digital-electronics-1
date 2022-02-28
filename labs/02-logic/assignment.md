@@ -73,7 +73,7 @@
                 (s_B_equals_A  = '0') and
                 (s_B_less_A    = '1'))
         -- If false, then report an error
-        report "Input combination COMPLETE_THIS_TEXT FAILED" severity error;
+        report "Input combination does not match expected output" severity error;
 
         -- Report a note at the end of stimulus process
         report "Stimulus process finished" severity note;
