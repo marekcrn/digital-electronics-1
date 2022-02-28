@@ -1,4 +1,4 @@
-# Lab 3: YMarek Černý, 230235
+# Lab 3: Marek Černý, 230235
 
 ### Preparation tasks (done before the lab at home)
 
