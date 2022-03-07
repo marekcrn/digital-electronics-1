@@ -12,20 +12,21 @@
 architecture Behavioral of mux_3bit_4to1 is
 begin
   with sel_i select
-    y_o <= a_i when "00",  -- If addr_i = "000" then y_o = a_i
+  
+    f_o <= a_i when "00",  
            b_i when "01",
            c_i when "10",
-           d_i when others; -- All other combinations
-
-    -- WRITE "EQUALS" AND "LESS" ASSIGNMENTS HERE
+           d_i when others;
+           
+end architecture Behavioral;
 ```
 
 end architecture Behavioral;
 
 2. Screenshot with simulated time waveforms. Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
-
+   https://www.edaplayground.com/x/DL5c
   <img width="1383" alt="image" src="https://user-images.githubusercontent.com/99393884/156355418-cf303413-3e8a-4b0e-b52b-5f35446d3191.png">
-
+  
 3. Listing of pin assignments for the Nexys A7 board in `nexys-a7-50t.xdc`. **DO NOT list** the whole file, just your switch and LED settings.
 
 ```shell
@@ -46,11 +47,8 @@ set_property -dict { PACKAGE_PIN H6    IOSTANDARD LVCMOS33 } [get_ports { d_i[1]
 set_property -dict { PACKAGE_PIN U12   IOSTANDARD LVCMOS33 } [get_ports { d_i[2] }]; #IO_L20P_T3_A08_D24_14 Sch=sw[13]
 
 ## LEDs
-set_property -dict { PACKAGE_PIN H17   IOSTANDARD LVCMOS33 } [get_ports { y_o[0] }]; #IO_L18P_T2_A24_15 Sch=led[0]
-set_property -dict { PACKAGE_PIN K15   IOSTANDARD LVCMOS33 } [get_ports { y_o[1] }]; #IO_L24P_T3_RS1_15 Sch=led[1]
-set_property -dict { PACKAGE_PIN J13   IOSTANDARD LVCMOS33 } [get_ports { y_o[2] }]; #IO_L17N_T2_A25_15 Sch=led[2]
+set_property -dict { PACKAGE_PIN H17   IOSTANDARD LVCMOS33 } [get_ports { f_o[0] }]; #IO_L18P_T2_A24_15 Sch=led[0]
+set_property -dict { PACKAGE_PIN K15   IOSTANDARD LVCMOS33 } [get_ports { f_o[1] }]; #IO_L24P_T3_RS1_15 Sch=led[1]
+set_property -dict { PACKAGE_PIN J13   IOSTANDARD LVCMOS33 } [get_ports { f_o[2] }]; #IO_L17N_T2_A25_15 Sch=led[2]
 
 ```
-
-
-   https://www.edaplayground.com/x/tBin
