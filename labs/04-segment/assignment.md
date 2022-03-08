@@ -1,4 +1,4 @@
-# Lab 4: YOUR_FIRSTNAME LASTNAME
+# Lab 4: Marek Černý, 230235
 
 ## Preparation tasks (done before the lab at home)
 
