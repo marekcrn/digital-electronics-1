@@ -1,6 +1,4 @@
-# Lab 5: YOUR_FIRSTNAME LASTNAME
-
-### Flip-flops
+# Lab 5: Marek Černý,230235
 
 ## Preparation tasks (done before the lab at home)
 
@@ -39,6 +37,8 @@
    | ![rising](images/eq_uparrow.png) | 0 | 1 |  |  |
    | ![rising](images/eq_uparrow.png) | 1 |  |  |  |
    | ![rising](images/eq_uparrow.png) | 1 |  |  |  |
+
+### Flip-flops
 
 1. Listing of VHDL architecture for T-type flip-flop. Always use syntax highlighting, meaningful comments, and follow VHDL guidelines:
 
