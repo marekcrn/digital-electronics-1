@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 15.03.2022 13:36:15
+-- Create Date: 15.03.2022 13:25:43
 -- Design Name: 
--- Module Name: t_ff_rst - Behavioral
+-- Module Name: d_ff_rst - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 

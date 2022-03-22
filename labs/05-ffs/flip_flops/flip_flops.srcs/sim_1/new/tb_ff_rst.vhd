@@ -19,22 +19,19 @@
 ----------------------------------------------------------------------------------
 
 
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
+------------------------------------------------------------
+-- Entity declaration for testbench
+------------------------------------------------------------
 entity tb_ff_rst is
---  Port ( );
-end tb_ff_rst;
+    -- Entity of testbench is always empty
+end entity tb_ff_rst;
 
+------------------------------------------------------------
+-- Architecture body for testbench
+------------------------------------------------------------
 architecture testbench of tb_ff_rst is
 
     constant c_CLK_100MHZ_PERIOD : time := 10 ns;
@@ -60,7 +57,7 @@ begin
             q_bar => s_d_q_bar
         );
 
-    uut_t_ff_rst : entity work.t_ff_rst
+    uut_d_ff_rst : entity work.t_ff_rst
         port map(
             clk   => s_clk_100MHz,
             rst   => s_rst,
@@ -68,6 +65,8 @@ begin
             q     => s_t_q,
             q_bar => s_t_q_bar
         );
+
+
     --------------------------------------------------------
     -- Clock generation process
     --------------------------------------------------------
@@ -90,10 +89,10 @@ begin
         s_rst <= '0';
 
         -- ACTIVATE AND DEACTIVATE RESET HERE
-        wait for 57 ns;
-        s_rst <= '1';
-        wait for 32 ns;
-        s_rst <= '0';
+        -- wait for XXX ns;
+        -- s_rst <= XXX;
+        -- wait for XXX ns;
+        -- s_rst <= XXX;
 
         wait;
     end process p_reset_gen;
@@ -104,22 +103,18 @@ begin
     p_stimulus : process
     begin
         report "Stimulus process started" severity note;
-        
-        s_data <='0'; wait for 13 ns;
-        s_data <='1'; wait for 13 ns;
-        s_data <='0'; wait for 13 ns;
-        s_data <='1'; wait for 13 ns;
-        s_data <='0'; wait for 13 ns;
-        s_data <='1'; wait for 13 ns;
-        s_data <='0'; wait for 13 ns;
-        s_data <='1'; wait for 13 ns;
-        s_data <='0'; wait for 13 ns;
-        s_data <='1'; wait for 13 ns;
-        s_data <='0'; wait for 13 ns;
-        s_data <='1'; wait for 13 ns;
-        s_data <='0'; wait for 22 ns;
-        s_data <='1'; wait for 22 ns;
-        
+        s_data <='0'; wait for 13 ns; -- 13ns
+        s_data <='1'; wait for 28 ns; -- 41 ns
+        s_data <='0'; wait for 15 ns; -- 56 ns
+        s_data <='1'; wait for 28 ns; -- 84 ns
+        s_data <='0'; wait for 14 ns; -- 98 ns
+        s_data <='1'; wait for 16 ns; -- 114 ns
+        s_data <='0'; wait for 47 ns; -- 161 ns
+        s_data <='1'; wait for 28 ns; -- 189 ns
+        s_data <='0'; wait for 11 ns; -- 200 ns MAXIMUM
+                        
+        -- DEFINE YOUR INPUT DATA HERE {snazim se}
+
         report "Stimulus process finished" severity note;
         wait;
     end process p_stimulus;

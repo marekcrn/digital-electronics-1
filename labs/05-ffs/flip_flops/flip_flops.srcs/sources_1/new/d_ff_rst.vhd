@@ -46,7 +46,7 @@ begin
     -- D type flip-flop with a high-active sync reset,
     -- rising-edge clk.
     -- q(n+1) = d
-    --------------------------------------------------------
+    -------------------------------------------------------- 
     p_d_ff_rst : process(clk)
     begin
         if rising_edge(clk) then  -- Synchronous process
