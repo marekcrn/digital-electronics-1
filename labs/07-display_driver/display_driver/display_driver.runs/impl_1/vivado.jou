@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Mar 29 13:45:55 2022
+# Process ID: 8816
+# Current directory: D:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.runs/impl_1
+# Command line: vivado.exe -log driver_7seg_4digits.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source driver_7seg_4digits.tcl -notrace
+# Log file: D:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.runs/impl_1/driver_7seg_4digits.vdi
+# Journal file: D:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source driver_7seg_4digits.tcl -notrace
