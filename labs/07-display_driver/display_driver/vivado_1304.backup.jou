@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Mar 29 15:29:28 2022
+# Process ID: 1304
+# Current directory: D:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent252 D:\Documents\xcerny76\digital-electronics-1\labs\07-display_driver\display_driver\display_driver.xpr
+# Log file: D:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver/vivado.log
+# Journal file: D:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.xpr
+update_compile_order -fileset sources_1
