@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "D:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.runs/synth_1/driver_7seg_4digits.tcl"
+  variable script "D:/vut/letní - 2/DE1/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.runs/synth_1/top.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,31 +70,26 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 2
-set_param synth.incrementalSynthesisCache C:/Users/student/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-7520-PC-461/incrSyn
-set_param xicom.use_bs_reader 1
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a50ticsg324-1L
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir D:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.cache/wt [current_project]
-set_property parent.project_path D:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.xpr [current_project]
+set_property webtalk.parent_dir {D:/vut/letní - 2/DE1/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.cache/wt} [current_project]
+set_property parent.project_path {D:/vut/letní - 2/DE1/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property board_part digilentinc.com:nexys-a7-50t:part0:1.0 [current_project]
-set_property ip_output_repo d:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.cache/ip [current_project]
+set_property ip_output_repo {d:/vut/letní - 2/DE1/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  D:/Documents/xcerny76/digital-electronics-1/labs/06-counter/counter/counter.srcs/sources_1/new/clock_enable.vhd
-  D:/Documents/xcerny76/digital-electronics-1/labs/06-counter/counter/counter.srcs/sources_1/new/cnt_up_down.vhd
-  D:/Documents/xcerny76/digital-electronics-1/labs/04-segment/display/display.srcs/sources_1/new/hex_7seg.vhd
-  D:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.srcs/sources_1/new/driver_7seg_4digits.vhd
+  {D:/vut/letní - 2/DE1/digital-electronics-1/labs/06-counter/counter/counter.srcs/sources_1/new/clock_enable.vhd}
+  {D:/vut/letní - 2/DE1/digital-electronics-1/labs/06-counter/counter/counter.srcs/sources_1/new/cnt_up_down.vhd}
+  {D:/vut/letní - 2/DE1/digital-electronics-1/labs/04-segment/display/display.srcs/sources_1/new/hex_7seg.vhd}
+  {D:/vut/letní - 2/DE1/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.srcs/sources_1/new/driver_7seg_4digits.vhd}
+  {D:/vut/letní - 2/DE1/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.srcs/sources_1/new/top.vhd}
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -105,14 +100,14 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc D:/Documents/xcerny76/digital-electronics-1/labs/06-counter/counter/counter.srcs/constrs_1/new/nexys-a7-50t.xdc
-set_property used_in_implementation false [get_files D:/Documents/xcerny76/digital-electronics-1/labs/06-counter/counter/counter.srcs/constrs_1/new/nexys-a7-50t.xdc]
+read_xdc {{D:/vut/letní - 2/DE1/digital-electronics-1/labs/06-counter/counter/counter.srcs/constrs_1/new/nexys-a7-50t.xdc}}
+set_property used_in_implementation false [get_files {{D:/vut/letní - 2/DE1/digital-electronics-1/labs/06-counter/counter/counter.srcs/constrs_1/new/nexys-a7-50t.xdc}}]
 
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
-synth_design -top driver_7seg_4digits -part xc7a50ticsg324-1L
+synth_design -top top -part xc7a50ticsg324-1L
 OPTRACE "synth_design" END { }
 if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
  send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
@@ -122,10 +117,10 @@ if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
 OPTRACE "write_checkpoint" START { CHECKPOINT }
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef driver_7seg_4digits.dcp
+write_checkpoint -force -noxdef top.dcp
 OPTRACE "write_checkpoint" END { }
 OPTRACE "synth reports" START { REPORT }
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file driver_7seg_4digits_utilization_synth.rpt -pb driver_7seg_4digits_utilization_synth.pb"
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb"
 OPTRACE "synth reports" END { }
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

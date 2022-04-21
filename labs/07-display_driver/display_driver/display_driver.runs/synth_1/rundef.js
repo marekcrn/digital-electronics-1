@@ -1,16 +1,16 @@
 //
 // Vivado(TM)
 // rundef.js: a Vivado-generated Runs Script for WSH 5.1/5.6
-// Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+// Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 //
 
 var WshShell = new ActiveXObject( "WScript.Shell" );
 var ProcEnv = WshShell.Environment( "Process" );
 var PathVal = ProcEnv("PATH");
 if ( PathVal.length == 0 ) {
-  PathVal = "C:/APPZ/Xilinx/Vivado/2020.2/ids_lite/ISE/bin/nt64;C:/APPZ/Xilinx/Vivado/2020.2/ids_lite/ISE/lib/nt64;C:/APPZ/Xilinx/Vivado/2020.2/bin;";
+  PathVal = "D:/Games/Xilinx/Vivado/2021.2/ids_lite/ISE/bin/nt64;D:/Games/Xilinx/Vivado/2021.2/ids_lite/ISE/lib/nt64;D:/Games/Xilinx/Vivado/2021.2/bin;";
 } else {
-  PathVal = "C:/APPZ/Xilinx/Vivado/2020.2/ids_lite/ISE/bin/nt64;C:/APPZ/Xilinx/Vivado/2020.2/ids_lite/ISE/lib/nt64;C:/APPZ/Xilinx/Vivado/2020.2/bin;" + PathVal;
+  PathVal = "D:/Games/Xilinx/Vivado/2021.2/ids_lite/ISE/bin/nt64;D:/Games/Xilinx/Vivado/2021.2/ids_lite/ISE/lib/nt64;D:/Games/Xilinx/Vivado/2021.2/bin;" + PathVal;
 }
 
 ProcEnv("PATH") = PathVal;
@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log driver_7seg_4digits.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source driver_7seg_4digits.tcl" );
+         "-log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl" );
 
 
 

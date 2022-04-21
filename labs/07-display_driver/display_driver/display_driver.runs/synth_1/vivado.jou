@@ -1,12 +1,13 @@
 #-----------------------------------------------------------
-# Vivado v2020.2 (64-bit)
-# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
-# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Tue Mar 29 13:44:59 2022
-# Process ID: 10660
-# Current directory: D:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.runs/synth_1
-# Command line: vivado.exe -log driver_7seg_4digits.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source driver_7seg_4digits.tcl
-# Log file: D:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.runs/synth_1/driver_7seg_4digits.vds
-# Journal file: D:/Documents/xcerny76/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.runs/synth_1\vivado.jou
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Tue Apr 12 19:47:41 2022
+# Process ID: 3140
+# Current directory: D:/vut/letní - 2/DE1/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.runs/synth_1
+# Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: D:/vut/letní - 2/DE1/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.runs/synth_1/top.vds
+# Journal file: D:/vut/letní - 2/DE1/digital-electronics-1/labs/07-display_driver/display_driver/display_driver.runs/synth_1\vivado.jou
+# Running On: DESKTOP-MAREK, OS: Windows, CPU Frequency: 3600 MHz, CPU Physical cores: 12, Host memory: 17102 MB
 #-----------------------------------------------------------
-source driver_7seg_4digits.tcl -notrace
+source top.tcl -notrace
