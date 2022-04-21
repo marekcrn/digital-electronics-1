@@ -33,7 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity top is
     Port ( CLK100MHz : in STD_LOGIC;
-           SW : in STD_LOGIC_VECTOR (1 downto 0);
+           SW : in STD_LOGIC_VECTOR (2 downto 0);
            CA : out STD_LOGIC;
            CB : out STD_LOGIC;
            CC : out STD_LOGIC;
@@ -69,6 +69,7 @@ begin
           seg_o(1) => CF,
           seg_o(0) => CG,
           
+          direction => SW(2),
           speed(1) => SW(1),
           speed(0) => SW(0),
           

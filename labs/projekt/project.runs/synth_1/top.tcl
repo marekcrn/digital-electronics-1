@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/Marek/Desktop/project/project.runs/synth_1/top.tcl"
+  variable script "D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project.runs/synth_1/top.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,28 +70,27 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 3
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a50ticsg324-1L
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/Marek/Desktop/project/project.cache/wt [current_project]
-set_property parent.project_path C:/Users/Marek/Desktop/project/project.xpr [current_project]
+set_property webtalk.parent_dir {D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project.cache/wt} [current_project]
+set_property parent.project_path {D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part digilentinc.com:nexys-a7-50t:part0:1.2 [current_project]
-set_property ip_output_repo c:/Users/Marek/Desktop/project/project.cache/ip [current_project]
+set_property ip_output_repo {d:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_vhdl -library xil_defaultlib {
-  C:/Users/Marek/Desktop/project/project.srcs/sources_1/new/clock_enable.vhd
-  C:/Users/Marek/Desktop/project/project.srcs/sources_1/new/cnt_up_down.vhd
-  C:/Users/Marek/Desktop/project/project.srcs/sources_1/new/hex_7seg.vhd
-  C:/Users/Marek/Desktop/project/project.srcs/sources_1/new/driver_7seg_4digits.vhd
-  C:/Users/Marek/Desktop/project/project.srcs/sources_1/new/top.vhd
+  {D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project.srcs/sources_1/new/clock_enable.vhd}
+  {D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project.srcs/sources_1/new/cnt_up_down.vhd}
+  {D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project.srcs/sources_1/new/hex_7seg.vhd}
+  {D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project.srcs/sources_1/new/driver_7seg_4digits.vhd}
+  {D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project.srcs/sources_1/new/top.vhd}
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -102,8 +101,8 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/Marek/Desktop/project/project.srcs/constrs_1/new/nexys-a7-50t.xdc
-set_property used_in_implementation false [get_files C:/Users/Marek/Desktop/project/project.srcs/constrs_1/new/nexys-a7-50t.xdc]
+read_xdc {{D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project.srcs/constrs_1/new/nexys-a7-50t.xdc}}
+set_property used_in_implementation false [get_files {{D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project.srcs/constrs_1/new/nexys-a7-50t.xdc}}]
 
 set_param ips.enableIPCacheLiteLoad 1
 

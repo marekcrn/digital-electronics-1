@@ -18,9 +18,10 @@ use ieee.numeric_std.all;
 ------------------------------------------------------------
 entity driver_7seg_4digits is
     port(
-        clk     : in  std_logic;
-        reset   : in  std_logic;
-        speed   : in  std_logic_vector(2 - 1 downto 0);
+        clk        : in  std_logic;
+        reset      : in  std_logic;
+        speed      : in  std_logic_vector(2 - 1 downto 0);
+        direction  : in  std_logic;
         -- 4-bit input value for decimal points
         dp_i    : in  std_logic_vector(8 - 1 downto 0);
         -- Decimal point for specific digit
@@ -184,32 +185,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S2;
+                                else
+                                    s_state <= S19;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
-                            else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                            else                               
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S2;
+                                else
+                                    s_state <= S19;
+                                end if;                     
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S2;
+                                else
+                                    s_state <= S19;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;  
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S2;
+                                else
+                                    s_state <= S19;
+                                end if; 
                             end if; 
                         end if;
 
@@ -218,32 +235,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S3;
+                                else
+                                    s_state <= S1;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S3;
+                                else
+                                    s_state <= S1;
+                                end if;                     
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S3;
+                                else
+                                    s_state <= S1;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;  
+                                s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S3;
+                                else
+                                    s_state <= S1;
+                                end if;  
                             end if; 
                         end if;
                         
@@ -252,32 +285,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S4;
+                                else
+                                    s_state <= S2;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S4;
+                                else
+                                    s_state <= S2;
+                                end if;                      
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S4;
+                                else
+                                    s_state <= S2;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;  
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S4;
+                                else
+                                    s_state <= S2;
+                                end if; 
                             end if; 
                         end if;
                         
@@ -286,32 +335,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S5;
+                                else
+                                    s_state <= S3;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S5;
+                                else
+                                    s_state <= S3;
+                                end if;                     
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S5;
+                                else
+                                    s_state <= S3;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;  
+                                s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S5;
+                                else
+                                    s_state <= S3;
+                                end if;  
                             end if; 
                         end if;
                         
@@ -320,32 +385,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S6;
+                                else
+                                    s_state <= S4;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S6;
+                                else
+                                    s_state <= S4;
+                                end if;                     
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S6;
+                                else
+                                    s_state <= S4;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;  
+                                s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S6;
+                                else
+                                    s_state <= S4;
+                                end if;  
                             end if; 
                         end if;
 
@@ -354,32 +435,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S7;
+                                else
+                                    s_state <= S5;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S7;
+                                else
+                                    s_state <= S5;
+                                end if;                      
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S7;
+                                else
+                                    s_state <= S5;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;  
+                                if (direction = '0') then
+                                    s_state <= S7;
+                                else
+                                    s_state <= S5;
+                                end if;
                             end if; 
                         end if;
 
@@ -388,32 +485,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S8;
+                                else
+                                    s_state <= S6;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S8;
+                                else
+                                    s_state <= S6;
+                                end if;                     
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S8;
+                                else
+                                    s_state <= S6;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;  
+                                if (direction = '0') then
+                                    s_state <= S8;
+                                else
+                                    s_state <= S6;
+                                end if;
                             end if; 
                         end if;
 
@@ -422,32 +535,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S9;
+                                else
+                                    s_state <= S7;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S9;
+                                else
+                                    s_state <= S7;
+                                end if;                     
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S9;
+                                else
+                                    s_state <= S7;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;  
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S9;
+                                else
+                                    s_state <= S7;
+                                end if; 
                             end if; 
                         end if;
 
@@ -456,32 +585,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S10;
+                                else
+                                    s_state <= S8;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO;  
+                                if (direction = '0') then
+                                    s_state <= S10;
+                                else
+                                    s_state <= S8;
+                                end if;                    
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S10;
+                                else
+                                    s_state <= S8;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;  
+                                if (direction = '0') then
+                                    s_state <= S10;
+                                else
+                                    s_state <= S8;
+                                end if;
                             end if; 
                         end if;
 
@@ -490,32 +635,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S11;
+                                else
+                                    s_state <= S9;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S11;
+                                else
+                                    s_state <= S9;
+                                end if;                      
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S11;
+                                else
+                                    s_state <= S9;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;  
+                                if (direction = '0') then
+                                    s_state <= S11;
+                                else
+                                    s_state <= S9;
+                                end if;
                             end if; 
                         end if;
 
@@ -524,32 +685,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S12;
+                                else
+                                    s_state <= S10;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S12;
+                                else
+                                    s_state <= S10;
+                                end if;                      
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S12;
+                                else
+                                    s_state <= S10;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;  
+                                if (direction = '0') then
+                                    s_state <= S12;
+                                else
+                                    s_state <= S10;
+                                end if;
                             end if; 
                         end if;
 
@@ -558,32 +735,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S13;
+                                else
+                                    s_state <= S11;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO;  
+                                if (direction = '0') then
+                                    s_state <= S13;
+                                else
+                                    s_state <= S11;
+                                end if;                    
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S13;
+                                else
+                                    s_state <= S11;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;  
+                                s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S13;
+                                else
+                                    s_state <= S11;
+                                end if;  
                             end if; 
                         end if;
                     
@@ -592,32 +785,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S14;
+                                else
+                                    s_state <= S12;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S14;
+                                else
+                                    s_state <= S12;
+                                end if;                     
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S14;
+                                else
+                                    s_state <= S12;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;  
+                                if (direction = '0') then
+                                    s_state <= S14;
+                                else
+                                    s_state <= S12;
+                                end if;
                             end if; 
                         end if;
  
@@ -626,32 +835,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S15;
+                                else
+                                    s_state <= S13;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO;  
+                                if (direction = '0') then
+                                    s_state <= S15;
+                                else
+                                    s_state <= S13;
+                                end if;                    
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S15;
+                                else
+                                    s_state <= S13;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;  
+                                if (direction = '0') then
+                                    s_state <= S15;
+                                else
+                                    s_state <= S13;
+                                end if;
                             end if; 
                         end if;
   
@@ -660,32 +885,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S16;
+                                else
+                                    s_state <= S14;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO;   
+                                if (direction = '0') then
+                                    s_state <= S16;
+                                else
+                                    s_state <= S14;
+                                end if;                   
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S16;
+                                else
+                                    s_state <= S14;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;  
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S16;
+                                else
+                                    s_state <= S14;
+                                end if; 
                             end if; 
                         end if;
 
@@ -694,32 +935,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S17;
+                                else
+                                    s_state <= S15;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S17;
+                                else
+                                    s_state <= S15;
+                                end if;                     
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S17;
+                                else
+                                    s_state <= S15;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;  
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S17;
+                                else
+                                    s_state <= S15;
+                                end if; 
                             end if; 
                         end if;
                         
@@ -728,32 +985,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S18;
+                                else
+                                    s_state <= S16;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S18;
+                                else
+                                    s_state <= S16;
+                                end if;                      
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S18;
+                                else
+                                    s_state <= S16;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;  
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S18;
+                                else
+                                    s_state <= S16;
+                                end if; 
                             end if; 
                         end if;
                     
@@ -762,32 +1035,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S19;
+                                else
+                                    s_state <= S17;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO;  
+                                if (direction = '0') then
+                                    s_state <= S19;
+                                else
+                                    s_state <= S17;
+                                end if;                    
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S19;
+                                else
+                                    s_state <= S17;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;  
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S19;
+                                else
+                                    s_state <= S17;
+                                end if; 
                             end if; 
                         end if;
                     
@@ -796,32 +1085,48 @@ begin
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S1;
+                                else
+                                    s_state <= S18;
+                                end if;
                             end if;
                                 
                         elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;                      
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S1;
+                                else
+                                    s_state <= S18;
+                                end if;                     
                             end if;
                         
                         elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
                                 s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S1;
+                                else
+                                    s_state <= S18;
+                                end if;
                             end if;
                             
                         elsif (speed = "11") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
-                                s_state <= S2;
-                                s_cnt2 <= c_ZERO;  
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S1;
+                                else
+                                    s_state <= S18;
+                                end if; 
                             end if; 
                         end if;
                                                 
