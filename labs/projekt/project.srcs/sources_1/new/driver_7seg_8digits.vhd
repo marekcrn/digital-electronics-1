@@ -16,37 +16,28 @@ use ieee.numeric_std.all;
 ------------------------------------------------------------
 -- Entity declaration for display driver
 ------------------------------------------------------------
-entity driver_7seg_4digits is
+entity driver_7seg_8digits is
     port(
         clk        : in  std_logic;
         reset      : in  std_logic;
         speed      : in  std_logic_vector(2 - 1 downto 0);
         direction  : in  std_logic;
-        -- 4-bit input value for decimal points
-        dp_i    : in  std_logic_vector(8 - 1 downto 0);
-        -- Decimal point for specific digit
-        dp_o    : out std_logic;
-        -- Cathode values for individual segments
-        seg_o   : out std_logic_vector(8 - 1 downto 0);
-        -- Common anode signals to individual displays
-        dig_o   : out std_logic_vector(8 - 1 downto 0)
+        
+        dp_i  : in  std_logic_vector(8 - 1 downto 0);
+        dp_o  : out std_logic;
+        seg_o : out std_logic_vector(8 - 1 downto 0);
+        dig_o : out std_logic_vector(8 - 1 downto 0)
     );
-end entity driver_7seg_4digits;
+end entity driver_7seg_8digits;
 
 ------------------------------------------------------------
 -- Architecture declaration for display driver
 ------------------------------------------------------------
-architecture Behavioral of driver_7seg_4digits is
+architecture Behavioral of driver_7seg_8digits is
 
-    -- Internal clock enable
-    signal s_en  : std_logic;
-    -- Internal 2-bit counter for multiplexing 4 digits
-    signal s_cnt : std_logic_vector(3 - 1 downto 0);
-    -- Internal 4-bit value for 7-segment decoder
-    signal s_hex : std_logic_vector(6 - 1 downto 0);
-    
-    signal s_cnt2 : unsigned(4 downto 0);
-    
+    signal s_en    : std_logic;
+    signal s_cnt   : std_logic_vector(3 - 1 downto 0);
+    signal s_hex   : std_logic_vector(6 - 1 downto 0);
     signal data0_i : std_logic_vector(6 - 1 downto 0);
     signal data1_i : std_logic_vector(6 - 1 downto 0);
     signal data2_i : std_logic_vector(6 - 1 downto 0);
@@ -55,11 +46,12 @@ architecture Behavioral of driver_7seg_4digits is
     signal data5_i : std_logic_vector(6 - 1 downto 0);
     signal data6_i : std_logic_vector(6 - 1 downto 0);
     signal data7_i : std_logic_vector(6 - 1 downto 0);
+    signal s_cnt2  : unsigned(5 - 1 downto 0);
     
     type t_state is (S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,S11,
                      S12,S13,S14,S15,S16,S17,S18,S19                    
-                     );
-    -- Define the signal that uses different states
+                     );        
+                                  
     signal s_state : t_state;
     
     constant c_DELAY_08SEC : unsigned(4 downto 0) := b"1_0000";
@@ -76,24 +68,24 @@ begin
             g_MAX => 4
         )
         port map(
-            clk => clk , -- WRITE YOUR CODE HERE
-            reset => reset,-- WRITE YOUR CODE HERE
+            clk => clk , 
+            reset => reset,
             ce_o  => s_en
         );
 
     --------------------------------------------------------
-    -- Instance (copy) of cnt_up_down entity performs a 2-bit
+    -- Instance (copy) of cnt_up_down entity performs a 3-bit
     -- down counter
     bin_cnt0 : entity work.cnt_up_down
         generic map(
-            g_CNT_Width => 3--- WRITE YOUR CODE HERE
+            g_CNT_Width => 3
         )
         port map(
             en_i => s_en,
             cnt_up_i =>'0',
             reset => reset,
             clk => clk,
-            cnt_o =>s_cnt--- WRITE YOUR CODE HERE
+            cnt_o =>s_cnt
         );
 
     --------------------------------------------------------
@@ -167,21 +159,14 @@ begin
      p_states : process(clk)
     begin
         if rising_edge(clk) then
-            if (reset = '1') then   -- Synchronous reset
-                s_state <= S1;   -- Set initial state
-                s_cnt2   <= c_ZERO;  -- Clear delay counter
+            if (reset = '1') then   
+                s_state <= S1;   
+                s_cnt2   <= c_ZERO;  
 
-            elsif (s_en = '1') then
-                -- Every 250 ms, CASE checks the value of the s_state 
-                -- variable and changes to the next state according 
-                -- to the delay value.
-                case s_state is
-
-                    -- If the current state is STOP1, then wait 1 sec
-                    -- and move to the next GO_WAIT state.
-                    when S1 =>
-                        -- Count up to c_DELAY_1SEC
-                        if (speed = "00") then
+            elsif (s_en = '1') then               
+                case s_state is            
+                    when S1 =>            
+                        if (speed = "00") then                            
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -1134,8 +1119,8 @@ begin
                         s_state <= S1;
                         s_cnt2   <= c_ZERO;
                 end case;
-            end if; -- Synchronous reset
-        end if; -- Rising edge
+            end if; 
+        end if; 
     end process p_states;
     
     p_output_fsm : process(s_state)

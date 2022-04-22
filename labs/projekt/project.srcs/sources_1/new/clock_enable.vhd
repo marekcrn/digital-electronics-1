@@ -18,11 +18,9 @@ use ieee.numeric_std.all;   -- Package for arithmetic operations, novinka
 ------------------------------------------------------------
 entity clock_enable is
     generic(
-        g_MAX : natural := 400000  -- Number of clk pulses to, netural = positive integer
-                               -- generate one enable signal
-                               -- period
-    );  -- Note that there IS a semicolon between generic 
-        -- and port sections
+        g_MAX : natural := 400000  
+    );  
+
     port(
         clk   : in  std_logic; -- Main clock
         reset : in  std_logic; -- Synchronous reset

@@ -33,7 +33,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity top is
     Port ( CLK100MHz : in STD_LOGIC;
-           SW : in STD_LOGIC_VECTOR (2 downto 0);
+           BTNC : in STD_LOGIC;
+           SW : in STD_LOGIC_VECTOR (3 - 1 downto 0);
            CA : out STD_LOGIC;
            CB : out STD_LOGIC;
            CC : out STD_LOGIC;
@@ -42,8 +43,8 @@ entity top is
            CF : out STD_LOGIC;
            CG : out STD_LOGIC;
            DP : out STD_LOGIC;
-           AN : out STD_LOGIC_VECTOR (7 downto 0);
-           BTNC : in STD_LOGIC);
+           AN : out STD_LOGIC_VECTOR (8 - 1 downto 0)
+    );
 end top;
 
 architecture Behavioral of top is
@@ -54,7 +55,7 @@ begin
 
   --------------------------------------------------------
   -- Instance (copy) of driver_7seg_4digits entity
-  driver_seg_4 : entity work.driver_7seg_4digits
+  driver_seg_4 : entity work.driver_7seg_8digits
       port map(
           clk        => CLK100MHZ,
           reset      => BTNC,
@@ -73,7 +74,7 @@ begin
           speed(1) => SW(1),
           speed(0) => SW(0),
           
-          dig_o(7 downto 0) => AN(7 downto 0)
+          dig_o(8 - 1 downto 0) => AN(8 - 1 downto 0)
       );
 
   -- Disconnect the top four digits of the 7-segment display
