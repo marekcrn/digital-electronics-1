@@ -54,11 +54,11 @@ architecture Behavioral of driver_7seg_8digits is
                                   
     signal s_state : t_state;
     
-    constant c_DELAY_1SEC  : unsigned(4 downto 0) := b"0_0100";
-    constant c_DELAY_08SEC : unsigned(4 downto 0) := b"1_0000";
-    constant c_DELAY_04SEC : unsigned(4 downto 0) := b"0_1000";
-    constant c_DELAY_02SEC : unsigned(4 downto 0) := b"0_0100";
-    constant c_ZERO        : unsigned(4 downto 0) := b"0_0000";
+    constant c_DELAY_1SEC  : unsigned(5 - 1 downto 0) := b"0_0100";
+    constant c_DELAY_08SEC : unsigned(5 - 1 downto 0) := b"1_0000";
+    constant c_DELAY_04SEC : unsigned(5 - 1 downto 0) := b"0_1000";
+    constant c_DELAY_02SEC : unsigned(5 - 1 downto 0) := b"0_0100";
+    constant c_ZERO        : unsigned(5 - 1 downto 0) := b"0_0000";
 
 begin
     --------------------------------------------------------
