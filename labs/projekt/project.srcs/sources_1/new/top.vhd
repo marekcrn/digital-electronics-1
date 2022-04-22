@@ -54,7 +54,7 @@ architecture Behavioral of top is
 begin
 
   --------------------------------------------------------
-  -- Instance (copy) of driver_7seg_4digits entity
+  -- Instance (copy) of driver_7seg_8digits entity
   driver_seg_8 : entity work.driver_7seg_8digits
       port map(
           clk        => CLK100MHZ,
@@ -75,8 +75,5 @@ begin
           speed(0) => SW(1),
           direction => SW(0)
       );
-
-  -- Disconnect the top four digits of the 7-segment display
- 
-
+      
 end architecture Behavioral;

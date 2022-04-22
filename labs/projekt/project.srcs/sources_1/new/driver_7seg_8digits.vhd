@@ -117,7 +117,7 @@ begin
                     when "111" =>
                         s_hex <= data7_i;
                         dp_o  <= dp_i(7);
-                        dig_o <= "01110111";
+                        dig_o <= "01111111";
                     when "110" =>
                         s_hex <= data6_i;
                         dp_o  <= dp_i(6);
