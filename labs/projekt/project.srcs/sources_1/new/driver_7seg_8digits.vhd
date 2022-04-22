@@ -54,6 +54,7 @@ architecture Behavioral of driver_7seg_8digits is
                                   
     signal s_state : t_state;
     
+    constant c_DELAY_1SEC  : unsigned(4 downto 0) := b"0_0100";
     constant c_DELAY_08SEC : unsigned(4 downto 0) := b"1_0000";
     constant c_DELAY_04SEC : unsigned(4 downto 0) := b"0_1000";
     constant c_DELAY_02SEC : unsigned(4 downto 0) := b"0_0100";
@@ -166,7 +167,7 @@ begin
             elsif (s_en = '1') then               
                 case s_state is            
                     when S1 =>            
-                        if (speed = "00") then                            
+                        if (speed = "11") then                            
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -178,7 +179,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else                               
@@ -190,7 +191,7 @@ begin
                                 end if;                     
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -202,9 +203,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO; 
                                 if (direction = '0') then
@@ -216,7 +217,7 @@ begin
                         end if;
 
                     when S2 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -228,7 +229,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -240,7 +241,7 @@ begin
                                 end if;                     
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -252,9 +253,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO;
                                 if (direction = '0') then
@@ -266,7 +267,7 @@ begin
                         end if;
                         
                     when S3 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -278,7 +279,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -290,7 +291,7 @@ begin
                                 end if;                      
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -302,9 +303,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO; 
                                 if (direction = '0') then
@@ -316,7 +317,7 @@ begin
                         end if;
                         
                     when S4 =>
-                       if (speed = "00") then
+                       if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -328,7 +329,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -340,7 +341,7 @@ begin
                                 end if;                     
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -352,9 +353,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO;
                                 if (direction = '0') then
@@ -366,7 +367,7 @@ begin
                         end if;
                         
                     when S5 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -378,7 +379,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -390,7 +391,7 @@ begin
                                 end if;                     
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -402,9 +403,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO;
                                 if (direction = '0') then
@@ -416,7 +417,7 @@ begin
                         end if;
 
                     when S6 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -428,7 +429,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -440,7 +441,7 @@ begin
                                 end if;                      
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -452,9 +453,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO;  
                                 if (direction = '0') then
@@ -466,7 +467,7 @@ begin
                         end if;
 
                     when S7 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -478,7 +479,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -490,7 +491,7 @@ begin
                                 end if;                     
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -502,9 +503,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO;  
                                 if (direction = '0') then
@@ -516,7 +517,7 @@ begin
                         end if;
 
                     when S8 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -528,7 +529,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -540,7 +541,7 @@ begin
                                 end if;                     
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -552,9 +553,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO; 
                                 if (direction = '0') then
@@ -566,7 +567,7 @@ begin
                         end if;
 
                     when S9 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -578,7 +579,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -590,7 +591,7 @@ begin
                                 end if;                    
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -602,9 +603,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO;  
                                 if (direction = '0') then
@@ -616,7 +617,7 @@ begin
                         end if;
 
                     when S10 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -628,7 +629,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -640,7 +641,7 @@ begin
                                 end if;                      
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -652,9 +653,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO;  
                                 if (direction = '0') then
@@ -666,7 +667,7 @@ begin
                         end if;
 
                     when S11 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -678,7 +679,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -690,7 +691,7 @@ begin
                                 end if;                      
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -702,9 +703,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO;  
                                 if (direction = '0') then
@@ -716,7 +717,7 @@ begin
                         end if;
 
                     when S12 =>
-                       if (speed = "00") then
+                       if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -728,7 +729,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -740,7 +741,7 @@ begin
                                 end if;                    
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -752,9 +753,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO;
                                 if (direction = '0') then
@@ -766,7 +767,7 @@ begin
                         end if;
                     
                     when S13 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -778,7 +779,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -790,7 +791,7 @@ begin
                                 end if;                     
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -802,9 +803,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO;  
                                 if (direction = '0') then
@@ -816,7 +817,7 @@ begin
                         end if;
  
                     when S14 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -828,7 +829,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -840,7 +841,7 @@ begin
                                 end if;                    
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -852,9 +853,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO;  
                                 if (direction = '0') then
@@ -866,7 +867,7 @@ begin
                         end if;
   
                     when S15 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -878,7 +879,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -890,7 +891,7 @@ begin
                                 end if;                   
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -902,9 +903,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO; 
                                 if (direction = '0') then
@@ -916,7 +917,7 @@ begin
                         end if;
 
                     when S16 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -928,7 +929,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -940,7 +941,7 @@ begin
                                 end if;                     
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -952,9 +953,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO; 
                                 if (direction = '0') then
@@ -966,7 +967,7 @@ begin
                         end if;
                         
                     when S17 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -978,7 +979,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -990,7 +991,7 @@ begin
                                 end if;                      
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -1002,9 +1003,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO; 
                                 if (direction = '0') then
@@ -1016,7 +1017,7 @@ begin
                         end if;
                     
                     when S18 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -1028,7 +1029,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -1040,7 +1041,7 @@ begin
                                 end if;                    
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -1052,9 +1053,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO; 
                                 if (direction = '0') then
@@ -1066,7 +1067,7 @@ begin
                         end if;
                     
                     when S19 =>
-                        if (speed = "00") then
+                        if (speed = "11") then
                             if (s_cnt2 < c_DELAY_02SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -1078,7 +1079,7 @@ begin
                                 end if;
                             end if;
                                 
-                        elsif (speed = "01") then
+                        elsif (speed = "10") then
                             if (s_cnt2 < c_DELAY_04SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -1090,7 +1091,7 @@ begin
                                 end if;                     
                             end if;
                         
-                        elsif (speed = "10") then
+                        elsif (speed = "01") then
                             if (s_cnt2 < c_DELAY_08SEC) then
                                 s_cnt2 <= s_cnt2 + 5;
                             else
@@ -1102,9 +1103,9 @@ begin
                                 end if;
                             end if;
                             
-                        elsif (speed = "11") then
-                            if (s_cnt2 < c_DELAY_08SEC) then
-                                s_cnt2 <= s_cnt2 + 5;
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
                             else
                                 s_cnt2 <= c_ZERO; 
                                 if (direction = '0') then

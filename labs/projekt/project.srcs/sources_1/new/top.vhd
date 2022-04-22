@@ -69,12 +69,11 @@ begin
           seg_o(2) => CE,
           seg_o(1) => CF,
           seg_o(0) => CG,
-          
-          direction => SW(2),
-          speed(1) => SW(1),
-          speed(0) => SW(0),
-          
-          dig_o(8 - 1 downto 0) => AN(8 - 1 downto 0)
+          dig_o(8 - 1 downto 0) => AN(8 - 1 downto 0),
+                    
+          speed(1) => SW(2),
+          speed(0) => SW(1),
+          direction => SW(0)
       );
 
   -- Disconnect the top four digits of the 7-segment display
