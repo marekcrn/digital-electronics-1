@@ -32,7 +32,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity top is
-    Port ( CLK100MHz : in STD_LOGIC;
+    Port ( CLK100MHZ : in STD_LOGIC;
            BTNC : in STD_LOGIC;
            SW : in STD_LOGIC_VECTOR (3 - 1 downto 0);
            CA : out STD_LOGIC;
@@ -55,7 +55,7 @@ begin
 
   --------------------------------------------------------
   -- Instance (copy) of driver_7seg_4digits entity
-  driver_seg_4 : entity work.driver_7seg_8digits
+  driver_seg_8 : entity work.driver_7seg_8digits
       port map(
           clk        => CLK100MHZ,
           reset      => BTNC,

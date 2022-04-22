@@ -1,7 +1,7 @@
 Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-| Date             : Fri Apr 22 19:20:26 2022
+| Date             : Fri Apr 22 19:31:07 2022
 | Host             : DESKTOP-MAREK running 64-bit major release  (build 9200)
 | Command          : report_power -file top_power_routed.rpt -pb top_power_summary_routed.pb -rpx top_power_routed.rpx
 | Design           : top
@@ -127,7 +127,7 @@ Table of Contents
 +-------------+-----------+-----------------+
 | Clock       | Domain    | Constraint (ns) |
 +-------------+-----------+-----------------+
-| sys_clk_pin | CLK100MHz |            10.0 |
+| sys_clk_pin | CLK100MHZ |            10.0 |
 +-------------+-----------+-----------------+
 
 
@@ -141,7 +141,7 @@ Table of Contents
 | Name           | Power (W) |
 +----------------+-----------+
 | top            |     0.039 |
-|   driver_seg_4 |     0.003 |
+|   driver_seg_8 |     0.003 |
 |     bin_cnt0   |     0.001 |
 +----------------+-----------+
 
