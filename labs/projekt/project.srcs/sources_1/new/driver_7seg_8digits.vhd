@@ -49,7 +49,7 @@ architecture Behavioral of driver_7seg_8digits is
     signal s_cnt2  : unsigned(5 - 1 downto 0);
     
     type t_state is (S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,S11,
-                     S12,S13,S14,S15,S16,S17,S18,S19                    
+                     S12,S13,S14,S15,S16,S17,S18,S19,S20                    
                      );        
                                   
     signal s_state : t_state;
@@ -152,6 +152,7 @@ begin
                         s_hex <= data0_i;
                         dp_o  <= dp_i(0);
                         dig_o <= "11111110";
+
                 end case;
             end if;
         end if;
@@ -175,7 +176,7 @@ begin
                                 if (direction = '0') then
                                     s_state <= S2;
                                 else
-                                    s_state <= S19;
+                                    s_state <= S20;
                                 end if;
                             end if;
                                 
@@ -187,7 +188,7 @@ begin
                                 if (direction = '0') then
                                     s_state <= S2;
                                 else
-                                    s_state <= S19;
+                                    s_state <= S20;
                                 end if;                     
                             end if;
                         
@@ -199,7 +200,7 @@ begin
                                 if (direction = '0') then
                                     s_state <= S2;
                                 else
-                                    s_state <= S19;
+                                    s_state <= S20;
                                 end if;
                             end if;
                             
@@ -211,7 +212,7 @@ begin
                                 if (direction = '0') then
                                     s_state <= S2;
                                 else
-                                    s_state <= S19;
+                                    s_state <= S20;
                                 end if; 
                             end if; 
                         end if;
@@ -1073,7 +1074,7 @@ begin
                             else
                                 s_cnt2 <= c_ZERO;
                                 if (direction = '0') then
-                                    s_state <= S1;
+                                    s_state <= S20;
                                 else
                                     s_state <= S18;
                                 end if;
@@ -1085,7 +1086,7 @@ begin
                             else
                                 s_cnt2 <= c_ZERO; 
                                 if (direction = '0') then
-                                    s_state <= S1;
+                                    s_state <= S20;
                                 else
                                     s_state <= S18;
                                 end if;                     
@@ -1097,7 +1098,7 @@ begin
                             else
                                 s_cnt2 <= c_ZERO;
                                 if (direction = '0') then
-                                    s_state <= S1;
+                                    s_state <= S20;
                                 else
                                     s_state <= S18;
                                 end if;
@@ -1109,9 +1110,59 @@ begin
                             else
                                 s_cnt2 <= c_ZERO; 
                                 if (direction = '0') then
-                                    s_state <= S1;
+                                    s_state <= S20;
                                 else
                                     s_state <= S18;
+                                end if; 
+                            end if; 
+                        end if;
+                        
+                    when S20 =>
+                        if (speed = "11") then
+                            if (s_cnt2 < c_DELAY_02SEC) then
+                                s_cnt2 <= s_cnt2 + 5;
+                            else
+                                s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S1;
+                                else
+                                    s_state <= S19;
+                                end if;
+                            end if;
+                                
+                        elsif (speed = "10") then
+                            if (s_cnt2 < c_DELAY_04SEC) then
+                                s_cnt2 <= s_cnt2 + 5;
+                            else
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S1;
+                                else
+                                    s_state <= S19;
+                                end if;                     
+                            end if;
+                        
+                        elsif (speed = "01") then
+                            if (s_cnt2 < c_DELAY_08SEC) then
+                                s_cnt2 <= s_cnt2 + 5;
+                            else
+                                s_cnt2 <= c_ZERO;
+                                if (direction = '0') then
+                                    s_state <= S1;
+                                else
+                                    s_state <= S19;
+                                end if;
+                            end if;
+                            
+                        elsif (speed = "00") then
+                            if (s_cnt2 < c_DELAY_1SEC) then
+                                s_cnt2 <= s_cnt2 + 1;
+                            else
+                                s_cnt2 <= c_ZERO; 
+                                if (direction = '0') then
+                                    s_state <= S1;
+                                else
+                                    s_state <= S19;
                                 end if; 
                             end if; 
                         end if;
@@ -1248,7 +1299,7 @@ begin
                 data7_i <= b"010101";
                 
             when S13 =>
-                data0_i <= b"111101";
+                data0_i <= b"111100";
                 data1_i <= b"001101";
                 data2_i <= b"010101";
                 data3_i <= b"011011";
@@ -1259,7 +1310,7 @@ begin
                 
             when S14 =>
                 data0_i <= b"111101";
-                data1_i <= b"111101";
+                data1_i <= b"111100";
                 data2_i <= b"001101";
                 data3_i <= b"010101";
                 data4_i <= b"011011";
@@ -1270,7 +1321,7 @@ begin
             when S15 =>
                 data0_i <= b"111101";
                 data1_i <= b"111101";
-                data2_i <= b"111101";
+                data2_i <= b"111100";
                 data3_i <= b"001101";
                 data4_i <= b"010101";
                 data5_i <= b"011011";
@@ -1281,7 +1332,7 @@ begin
                 data0_i <= b"111101";
                 data1_i <= b"111101";
                 data2_i <= b"111101";
-                data3_i <= b"111101";
+                data3_i <= b"111100";
                 data4_i <= b"001101";
                 data5_i <= b"010101";
                 data6_i <= b"011011";
@@ -1292,7 +1343,7 @@ begin
                 data1_i <= b"111101";
                 data2_i <= b"111101";
                 data3_i <= b"111101";
-                data4_i <= b"111101";
+                data4_i <= b"111100";
                 data5_i <= b"001101";
                 data6_i <= b"010101";
                 data7_i <= b"011011";
@@ -1303,7 +1354,7 @@ begin
                 data2_i <= b"111101";
                 data3_i <= b"111101";
                 data4_i <= b"111101";
-                data5_i <= b"111101";
+                data5_i <= b"111100";
                 data6_i <= b"001101";
                 data7_i <= b"010101";
                 
@@ -1314,8 +1365,19 @@ begin
                 data3_i <= b"111101";
                 data4_i <= b"111101";
                 data5_i <= b"111101";
-                data6_i <= b"111101";
+                data6_i <= b"111100";
                 data7_i <= b"001101";
+                
+            when S20 =>
+                data0_i <= b"111101";
+                data1_i <= b"111101";
+                data2_i <= b"111101";
+                data3_i <= b"111101";
+                data4_i <= b"111101";
+                data5_i <= b"111101";
+                data6_i <= b"111101";
+                data7_i <= b"111100";
+                
         end case;
     end process p_output_fsm;
 

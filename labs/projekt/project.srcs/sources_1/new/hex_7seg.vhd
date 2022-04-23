@@ -32,8 +32,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 --use UNISIM.VComponents.all;
 
 entity hex_7seg is
-    Port ( hex_i : in STD_LOGIC_VECTOR (5 downto 0);
-           seg_o : out STD_LOGIC_VECTOR (7 downto 0));
+    Port ( hex_i : in STD_LOGIC_VECTOR (6 - 1 downto 0);
+           seg_o : out STD_LOGIC_VECTOR (8 - 1 downto 0));
 end hex_7seg;
 
 architecture Behavioral of hex_7seg is

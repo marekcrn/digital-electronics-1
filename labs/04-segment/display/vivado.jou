@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Sat Apr 23 21:09:58 2022
+# Process ID: 11472
+# Current directory: D:/vut/letni - 2/DE1/digital-electronics-1/labs/04-segment/display
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13012 D:\vut\letni - 2\DE1\digital-electronics-1\labs\04-segment\display\display.xpr
+# Log file: D:/vut/letni - 2/DE1/digital-electronics-1/labs/04-segment/display/vivado.log
+# Journal file: D:/vut/letni - 2/DE1/digital-electronics-1/labs/04-segment/display\vivado.jou
+# Running On: DESKTOP-MAREK, OS: Windows, CPU Frequency: 3600 MHz, CPU Physical cores: 12, Host memory: 17102 MB
+#-----------------------------------------------------------
+start_gui
+open_project {D:/vut/letni - 2/DE1/digital-electronics-1/labs/04-segment/display/display.xpr}
+update_compile_order -fileset sources_1
+launch_simulation
+open_wave_config {D:/vut/letni - 2/DE1/digital-electronics-1/labs/04-segment/display/tb_hex_7seg_behav.wcfg}
+source tb_hex_7seg.tcl
+close_sim
