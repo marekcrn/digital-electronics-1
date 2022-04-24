@@ -98,7 +98,7 @@ begin
         s_direction <= '0';
         s_speed     <= "00";
 
-        wait for 250 ns;
+        wait for 400 ns;
         
         s_dpin      <= "00001111";
         s_direction <= '1';

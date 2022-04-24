@@ -66,7 +66,7 @@ begin
     -- an enable pulse every 4 ms
     clk_en0 : entity work.clock_enable
         generic map(
-            g_MAX => 4
+            g_MAX => 25000000 --25000000 for implementation; 1 for simulation
         )
         port map(
             clk => clk , 
@@ -149,6 +149,11 @@ begin
                         dig_o <= "11111101";
 
                     when "000" =>
+                        s_hex <= data0_i;
+                        dp_o  <= dp_i(0);
+                        dig_o <= "11111110";
+                        
+                    when others =>
                         s_hex <= data0_i;
                         dp_o  <= dp_i(0);
                         dig_o <= "11111110";
