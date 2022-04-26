@@ -1,0 +1,23 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Apr  5 15:57:49 2022
+# Process ID: 4288
+# Current directory: D:/Documents/xcerny76/digital-electronics-1/labs/08-traffic_lights/traffic
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent2820 D:\Documents\xcerny76\digital-electronics-1\labs\08-traffic_lights\traffic\traffic.xpr
+# Log file: D:/Documents/xcerny76/digital-electronics-1/labs/08-traffic_lights/traffic/vivado.log
+# Journal file: D:/Documents/xcerny76/digital-electronics-1/labs/08-traffic_lights/traffic\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/Documents/xcerny76/digital-electronics-1/labs/08-traffic_lights/traffic/traffic.xpr
+WARNING: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'D:/Documents/xcerny76/digital-electronics-1/labs/08-traffic_lights/traffic/traffic.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/APPZ/Xilinx/Vivado/2020.2/data/ip'.
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:05 . Memory (MB): peak = 999.379 ; gain = 0.000
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Tue Apr  5 15:58:48 2022...
