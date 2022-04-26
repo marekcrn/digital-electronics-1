@@ -2,9 +2,9 @@
 
 ### Team members
 
-Marek Černý
-Martin Borski
-Aleš Pikhart
+* Marek Černý
+* Martin Borski
+* Aleš Pikhart
 
 ### Table of contents
 
@@ -19,7 +19,7 @@ Aleš Pikhart
 
 ## Project objectives
 
-Write your text here.
+Náš úkol spočíval ve vytvoření běžícího textu na sedmisegmentovém displayi
 
 <a name="hardware"></a>
 
