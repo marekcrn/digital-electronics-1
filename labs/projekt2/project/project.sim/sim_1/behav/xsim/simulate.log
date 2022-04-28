@@ -1,0 +1,5 @@
+Time resolution is 1 ps
+Note: Stimulus process started
+Time: 0 ps  Iteration: 0  Process: /tb_driver_7seg_8digits/p_stimulus  File: D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt2/project/project.srcs/sim_1/new/tb_driver_7seg_8digits.vhd
+Note: Stimulus process finished
+Time: 3500 ns  Iteration: 0  Process: /tb_driver_7seg_8digits/p_stimulus  File: D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt2/project/project.srcs/sim_1/new/tb_driver_7seg_8digits.vhd

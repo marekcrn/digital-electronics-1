@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "D:/Documents/xcerny76/digital-electronics-1/labs/26.4/project/project.runs/impl_1/top.tcl"
+  variable script "D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project/project.runs/impl_1/top.tcl"
   variable category "vivado_impl"
 }
 
@@ -122,8 +122,7 @@ start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
-  set_param chipscope.maxJobs 2
-  set_param xicom.use_bs_reader 1
+  set_param chipscope.maxJobs 3
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7a50ticsg324-1L
   set_property board_part digilentinc.com:nexys-a7-50t:part0:1.0 [current_project]
@@ -131,19 +130,19 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir D:/Documents/xcerny76/digital-electronics-1/labs/26.4/project/project.cache/wt [current_project]
-  set_property parent.project_path D:/Documents/xcerny76/digital-electronics-1/labs/26.4/project/project.xpr [current_project]
-  set_property ip_output_repo D:/Documents/xcerny76/digital-electronics-1/labs/26.4/project/project.cache/ip [current_project]
+  set_property webtalk.parent_dir {D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project/project.cache/wt} [current_project]
+  set_property parent.project_path {D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project/project.xpr} [current_project]
+  set_property ip_output_repo {{D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project/project.cache/ip}} [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet D:/Documents/xcerny76/digital-electronics-1/labs/26.4/project/project.runs/synth_1/top.dcp
+  add_files -quiet {{D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project/project.runs/synth_1/top.dcp}}
 OPTRACE "read constraints: implementation" START { }
-  read_xdc D:/Documents/xcerny76/digital-electronics-1/labs/26.4/project/project.srcs/constrs_1/new/nexys_a7_50t.xdc
+  read_xdc {{D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt/project/project.srcs/constrs_1/new/nexys_a7_50t.xdc}}
 OPTRACE "read constraints: implementation" END { }
 OPTRACE "add files" END { }
 OPTRACE "link_design" START { }
-  link_design -top top -part xc7a50ticsg324-1L
+  link_design -top top -part xc7a50ticsg324-1L 
 OPTRACE "link_design" END { }
 OPTRACE "gray box cells" START { }
 OPTRACE "gray box cells" END { }
