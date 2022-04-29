@@ -31,13 +31,15 @@ Write your text here.
 
 ## VHDL modules description and simulations
 
-Write your text here.
+![clock](images/waveforms_clock.png)
+![counter](images/waveforms_cnt.png)
+![hex7seg](images/waveforms_hex7seg.png)
 
 <a name="top"></a>
 
 ## TOP module description and simulations
 
-Write your text here.
+![driver](images/waveforms_driver.png)
 
 <a name="video"></a>
 
