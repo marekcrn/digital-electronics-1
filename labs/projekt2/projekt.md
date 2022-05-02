@@ -74,4 +74,5 @@ Write your text here
 
 ## References
 
-1. Write your text here.
+1. [https://github.com/tomas-fryza/digital-electronics-1](https://github.com/tomas-fryza/digital-electronics-1)
+2. [https://www.chrispurdie.com/7seg1_web](https://www.chrispurdie.com/7seg1_web)
