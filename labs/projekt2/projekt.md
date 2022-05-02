@@ -34,9 +34,13 @@ Write your text here.
 Všechny použité moduly byly převzaty z předchozích cvičení a následně upraveny pro požadované funkce
 
 * clock_enable
+
+Funkcí tohoto modulu je upravit frekvenci vstupního hodinového signálu na požadovanou hodnotu. 
 ![clock](images/waveforms_clock.png)
 
 * cnt_up_down
+
+Tento modul slouží k pričítání k tříbitové hodnotě s_cnt (v simulaci čtyřbitové), která ovládá, který z osmi dislayů je právě aktivní. 
 ![counter](images/waveforms_cnt.png)
 
 * hex_7seg
