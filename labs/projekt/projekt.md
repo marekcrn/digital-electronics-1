@@ -44,7 +44,7 @@ Funkcí tohoto modulu je upravit frekvenci vstupního hodinového signálu na po
 
 * [cnt_up_down](project/project.srcs/sources_1/new/cnt_up_down.vhd)
 
-Tento modul slouží k pričítání k tříbitové hodnotě s_cnt (v simulaci čtyřbitové), která ovládá, který z osmi dislayů je právě aktivní. 
+Tento modul slouží k přičítání k tříbitové hodnotě s_cnt (v simulaci čtyřbitové), která ovládá, který z osmi displayů je právě aktivní. 
 ![counter](images/waveforms_cnt.png)
 
 * [hex_7seg](project/project.srcs/sources_1/new/hex_7seg.vhd)
@@ -55,7 +55,7 @@ Tento modul slouží k pričítání k tříbitové hodnotě s_cnt (v simulaci �
 
 * [driver_7seg_8digits](project/project.srcs/sources_1/new/driver_7seg_8digits.vhd)
 
-Tento modul propojuje veškeré předchozíhodnoty a přidává další funkce. Skládá se ze signálů v předchozích modulech, vstupních signálů speed, direction a z vnitřních signálů s_cnt2 (ovládá čas mezi jednotlivými stavy) a data0-7_i, kterým jsou přiřazovány jednobitové stringy. Dále obsahuje konstanty pro čas prodlevy mezi stavy, string obsahující až  dvanácti znakovou zprávu, která se má zobrazovat na displayích, konstantu označující nesvítící display a množinu stavů, díky kterým text rotuje. 
+Tento modul propojuje veškeré předchozí hodnoty a přidává další funkce. Skládá se ze signálů v předchozích modulech, vstupních signálů speed, direction a z vnitřních signálů s_cnt2 (ovládá čas mezi jednotlivými stavy) a data0-7_i, kterým jsou přiřazovány jednobitové stringy. Dále obsahuje konstanty pro čas prodlevy mezi stavy, string obsahující až  dvanácti znakovou zprávu, která se má zobrazovat na displayích, konstantu označující nesvítící display a množinu stavů, díky kterým text rotuje. 
 
 ![driver](images/waveforms_driver.png)
 
