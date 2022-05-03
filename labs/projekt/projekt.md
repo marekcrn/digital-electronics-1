@@ -47,7 +47,7 @@ Funkcí tohoto modulu je upravit frekvenci vstupního hodinového signálu na po
 Tento modul slouží k pričítání k tříbitové hodnotě s_cnt (v simulaci čtyřbitové), která ovládá, který z osmi dislayů je právě aktivní. 
 ![counter](images/waveforms_cnt.png)
 
-* [hex7_seg](project/project.srcs/sources_1/new/hex7_seg.vhd)
+* [hex_7seg](project/project.srcs/sources_1/new/hex_7seg.vhd)
 
 Účelem tohoto modulu je transformovat vstupní jednobitový string hex_i na osmibitovou binární hodnotu seg_o představující stav katod displaye.
 
