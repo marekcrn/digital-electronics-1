@@ -55,7 +55,7 @@ Tento modul slouží k přičítání k tříbitové hodnotě s_cnt (v simulaci 
 
 * [driver_7seg_8digits](project/project.srcs/sources_1/new/driver_7seg_8digits.vhd)
 
-Tento modul propojuje veškeré předchozí hodnoty a přidává další funkce. Skládá se ze signálů v předchozích modulech, vstupních signálů speed, direction a z vnitřních signálů s_cnt2 (ovládá čas mezi jednotlivými stavy) a data0-7_i, kterým jsou přiřazovány jednobitové stringy. Dále obsahuje konstanty pro čas prodlevy mezi stavy, string obsahující až  dvanácti znakovou zprávu, která se má zobrazovat na displayích, konstantu označující nesvítící display a množinu stavů, díky kterým text rotuje. 
+Tento modul propojuje veškeré předchozí hodnoty a přidává další funkce. Skládá se ze signálů v předchozích modulech, vstupních signálů speed, direction a z vnitřních signálů s_cnt2, který ovládá čas mezi jednotlivými stavy a data0-7_i, kterým jsou přiřazovány jednobitové stringy. Dále obsahuje konstanty pro čas prodlevy mezi stavy, string obsahující až dvanáctiznakovou zprávu, která se má zobrazovat na displayích, konstantu, která označuje stav, při které nesvítí žádná katoda na displayi a množinu stavů t_state, díky kterým text rotuje.
 
 ![driver](images/waveforms_driver.png)
 
@@ -65,7 +65,7 @@ Tento modul propojuje veškeré předchozí hodnoty a přidává další funkce.
 
 * [top](project/project.srcs/sources_1/new/top.vhd)
 
-Funkcí tohoto modulu je propojit signály z driver_7seg_8digits s piny na desce Nexys A7 50T. Propojuje hodinový signál, tlačítko BTNC s reset, switch(0) se signálem direction, switch(1-2) se signálem speed, signál seg_o s jednotlivými katodami a desetinnou tečkou a dig_o s AN aktivující displaye.
+Funkcí vrstvy top je propojit signály z driveru s piny na desce Nexys A7 50T. Propojuje hodinový signál, tlačítko BTNC s resetem, switch(0) se signálem direction, switch(1-2) se signálem speed, signál seg_o s jednotlivými katodami a desetinnou tečkou a dig_o s AN aktivující displaye.
 
 ![schema](images/schematic.png)
 
