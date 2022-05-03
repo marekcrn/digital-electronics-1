@@ -26,7 +26,11 @@ Náš úkol spočíval ve vytvoření běžícího textu na sedmisegmentovém di
 
 ## Hardware description
 
-Write your text here.
+Pro implementaci našeho kódu jsme použili desku nexys A7 50T. Z ní jsme využili osm displayů, první tři switche a button BTNC.
+
+![board](images/board.png)
+
+![pins](images/pins.png)
 
 <a name="modules"></a>
 
