@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a50ticsg324-1L" LaunchTime="1651161054">
+<GenRun Id="synth_1" LaunchPart="xc7a50ticsg324-1L" LaunchTime="1651576663">
   <File Type="PA-TCL" Name="top.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="top_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="top_reports.tcl"/>
@@ -13,30 +13,40 @@
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/clock_enable.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/new/clock_enable.vhd"/>
+        <Attr Name="ImportTime" Val="1651576328"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/cnt_up_down.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/new/cnt_up_down.vhd"/>
+        <Attr Name="ImportTime" Val="1651576328"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/hex_7seg.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/new/hex_7seg.vhd"/>
+        <Attr Name="ImportTime" Val="1651576328"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/driver_7seg_8digits.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/new/driver_7seg_8digits.vhd"/>
+        <Attr Name="ImportTime" Val="1651576328"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/new/top.vhd">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/new/top.vhd"/>
+        <Attr Name="ImportTime" Val="1651576328"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
@@ -51,6 +61,8 @@
     <Filter Type="Constrs"/>
     <File Path="$PSRCDIR/constrs_1/new/nexys_a7_50t.xdc">
       <FileInfo>
+        <Attr Name="ImportPath" Val="$PSRCDIR/constrs_1/new/nexys_a7_50t.xdc"/>
+        <Attr Name="ImportTime" Val="1651576328"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>

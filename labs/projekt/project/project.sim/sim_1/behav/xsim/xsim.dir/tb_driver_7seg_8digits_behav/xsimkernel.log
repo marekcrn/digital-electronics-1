@@ -1,7 +1,0 @@
-Running: xsim.dir/tb_driver_7seg_8digits_behav/xsimk.exe -simmode gui -wdb tb_driver_7seg_8digits_behav.wdb -simrunnum 0 -socket 50179
-Design successfully loaded
-Design Loading Memory Usage: 5752 KB (Peak: 5752 KB)
-Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 6488 KB (Peak: 6488 KB)
-Simulation CPU Usage: 31 ms

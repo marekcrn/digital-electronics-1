@@ -1,6 +1,3 @@
-Vivado Simulator 2020.2
 Time resolution is 1 ps
 Note: Stimulus process started
-Time: 0 ps  Iteration: 0  Process: /tb_hex_7seg/p_stimulus  File: D:/Documents/xcerny76/digital-electronics-1/labs/26.4/project/project.srcs/sim_1/new/tb_hex_7seg.vhd
-Note: Stimulus process finished
-Time: 860 ns  Iteration: 0  Process: /tb_hex_7seg/p_stimulus  File: D:/Documents/xcerny76/digital-electronics-1/labs/26.4/project/project.srcs/sim_1/new/tb_hex_7seg.vhd
+Time: 0 ps  Iteration: 0  Process: /tb_driver_7seg_8digits/p_stimulus  File: D:/vut/letni - 2/DE1/digital-electronics-1/labs/projekt2/project/project.srcs/sim_1/new/tb_driver_7seg_8digits.vhd

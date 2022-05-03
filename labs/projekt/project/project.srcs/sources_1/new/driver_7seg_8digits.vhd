@@ -37,16 +37,17 @@ architecture Behavioral of driver_7seg_8digits is
 
     signal s_en    : std_logic;
     signal s_cnt   : std_logic_vector(3 - 1 downto 0);
-    signal s_hex   : std_logic_vector(6 - 1 downto 0);
-    signal data0_i : std_logic_vector(6 - 1 downto 0);
-    signal data1_i : std_logic_vector(6 - 1 downto 0);
-    signal data2_i : std_logic_vector(6 - 1 downto 0);
-    signal data3_i : std_logic_vector(6 - 1 downto 0);
-    signal data4_i : std_logic_vector(6 - 1 downto 0);
-    signal data5_i : std_logic_vector(6 - 1 downto 0);
-    signal data6_i : std_logic_vector(6 - 1 downto 0);
-    signal data7_i : std_logic_vector(6 - 1 downto 0);
     signal s_cnt2  : unsigned(9 - 1 downto 0);
+   
+    signal s_hex   : String(1 to 1);
+    signal data0_i : String(1 to 1);
+    signal data1_i : String(1 to 1);
+    signal data2_i : String(1 to 1);
+    signal data3_i : String(1 to 1);
+    signal data4_i : String(1 to 1);
+    signal data5_i : String(1 to 1);
+    signal data6_i : String(1 to 1);
+    signal data7_i : String(1 to 1); 
     
     type t_state is (S1,S2,S3,S4,S5,S6,S7,S8,S9,S10,S11,
                      S12,S13,S14,S15,S16,S17,S18,S19,S20                    
@@ -59,6 +60,9 @@ architecture Behavioral of driver_7seg_8digits is
     constant c_DELAY_04SEC : unsigned(9 - 1 downto 0) := b"0_10000000";
     constant c_DELAY_02SEC : unsigned(9 - 1 downto 0) := b"0_01000000";
     constant c_ZERO        : unsigned(9 - 1 downto 0) := b"0_00000000";
+    
+    constant c_string      : String(1 to 12) := "hello world!";
+    constant c_space       : String(1 to 1) := " ";
 
 begin
     --------------------------------------------------------
@@ -1184,204 +1188,204 @@ begin
     begin
         case s_state is
             when S1 =>
-                data0_i <= b"111101";
-                data1_i <= b"111101";
-                data2_i <= b"111101";
-                data3_i <= b"111101";
-                data4_i <= b"111101";
-                data5_i <= b"111101";
-                data6_i <= b"111101";
-                data7_i <= b"111101";
+                data0_i <= c_space;
+                data1_i <= c_space;
+                data2_i <= c_space;
+                data3_i <= c_space;
+                data4_i <= c_space;
+                data5_i <= c_space;
+                data6_i <= c_space;
+                data7_i <= c_space;
                 
             when S2 =>
-                data0_i <= b"010001";
-                data1_i <= b"111101";
-                data2_i <= b"111101";
-                data3_i <= b"111101";
-                data4_i <= b"111101";
-                data5_i <= b"111101";
-                data6_i <= b"111101";
-                data7_i <= b"111101";
+                data0_i <= c_string(1 to 1);
+                data1_i <= c_space;
+                data2_i <= c_space;
+                data3_i <= c_space;
+                data4_i <= c_space;
+                data5_i <= c_space;
+                data6_i <= c_space;
+                data7_i <= c_space;
                 
             when S3 =>
-                data0_i <= b"001110";
-                data1_i <= b"010001";
-                data2_i <= b"111101";
-                data3_i <= b"111101";
-                data4_i <= b"111101";
-                data5_i <= b"111101";
-                data6_i <= b"111101";
-                data7_i <= b"111101";
+                data0_i <= c_string(2 to 2);
+                data1_i <= c_string(1 to 1);
+                data2_i <= c_space;
+                data3_i <= c_space;
+                data4_i <= c_space;
+                data5_i <= c_space;
+                data6_i <= c_space;
+                data7_i <= c_space;
                 
             when S4 =>
-                data0_i <= b"010101";
-                data1_i <= b"001110";
-                data2_i <= b"010001";
-                data3_i <= b"111101";
-                data4_i <= b"111101";
-                data5_i <= b"111101";
-                data6_i <= b"111101";
-                data7_i <= b"111101";
+                data0_i <= c_string(3 to 3);
+                data1_i <= c_string(2 to 2);
+                data2_i <= c_string(1 to 1);
+                data3_i <= c_space;
+                data4_i <= c_space;
+                data5_i <= c_space;
+                data6_i <= c_space;
+                data7_i <= c_space;
                 
             when S5 =>
-                data0_i <= b"010101";
-                data1_i <= b"010101";
-                data2_i <= b"001110";
-                data3_i <= b"010001";
-                data4_i <= b"111101";
-                data5_i <= b"111101";
-                data6_i <= b"111101";
-                data7_i <= b"111101";
+                data0_i <= c_string(4 to 4);
+                data1_i <= c_string(3 to 3);
+                data2_i <= c_string(2 to 2);
+                data3_i <= c_string(1 to 1);
+                data4_i <= c_space;
+                data5_i <= c_space;
+                data6_i <= c_space;
+                data7_i <= c_space;
                 
             when S6 =>
-                data0_i <= b"011000";
-                data1_i <= b"010101";
-                data2_i <= b"010101";
-                data3_i <= b"001110";
-                data4_i <= b"010001";
-                data5_i <= b"111101";
-                data6_i <= b"111101";
-                data7_i <= b"111101";
+                data0_i <= c_string(5 to 5);
+                data1_i <= c_string(4 to 4);
+                data2_i <= c_string(3 to 3);
+                data3_i <= c_string(2 to 2);
+                data4_i <= c_string(1 to 1);
+                data5_i <= c_space;
+                data6_i <= c_space;
+                data7_i <= c_space;
                 
             when S7 =>
-                data0_i <= b"111101";
-                data1_i <= b"011000";
-                data2_i <= b"010101";
-                data3_i <= b"010101";
-                data4_i <= b"001110";
-                data5_i <= b"010001";
-                data6_i <= b"111101";
-                data7_i <= b"111101";
+                data0_i <= c_string(6 to 6);
+                data1_i <= c_string(5 to 5);
+                data2_i <= c_string(4 to 4);
+                data3_i <= c_string(3 to 3);
+                data4_i <= c_string(2 to 2);
+                data5_i <= c_string(1 to 1);
+                data6_i <= c_space;
+                data7_i <= c_space;
                 
             when S8 =>
-                data0_i <= b"100000";
-                data1_i <= b"111101";
-                data2_i <= b"011000";
-                data3_i <= b"010101";
-                data4_i <= b"010101";
-                data5_i <= b"001110";
-                data6_i <= b"010001";
-                data7_i <= b"111101";
+                data0_i <= c_string(7 to 7);
+                data1_i <= c_string(6 to 6);
+                data2_i <= c_string(5 to 5);
+                data3_i <= c_string(4 to 4);
+                data4_i <= c_string(3 to 3);
+                data5_i <= c_string(2 to 2);
+                data6_i <= c_string(1 to 1);
+                data7_i <= c_space;
                 
             when S9 =>
-                data0_i <= b"011000";
-                data1_i <= b"100000";
-                data2_i <= b"111101";
-                data3_i <= b"011000";
-                data4_i <= b"010101";
-                data5_i <= b"010101";
-                data6_i <= b"001110";
-                data7_i <= b"010001";
+                data0_i <= c_string(8 to 8);
+                data1_i <= c_string(7 to 7);
+                data2_i <= c_string(6 to 6);
+                data3_i <= c_string(5 to 5);
+                data4_i <= c_string(4 to 4);
+                data5_i <= c_string(3 to 3);
+                data6_i <= c_string(2 to 2);
+                data7_i <= c_string(1 to 1);
                 
             when S10 =>
-                data0_i <= b"011011";
-                data1_i <= b"011000";
-                data2_i <= b"100000";
-                data3_i <= b"111101";
-                data4_i <= b"011000";
-                data5_i <= b"010101";
-                data6_i <= b"010101";
-                data7_i <= b"001110";
+                data0_i <= c_string(9 to 9);
+                data1_i <= c_string(8 to 8);
+                data2_i <= c_string(7 to 7);
+                data3_i <= c_string(6 to 6);
+                data4_i <= c_string(5 to 5);
+                data5_i <= c_string(4 to 4);
+                data6_i <= c_string(3 to 3);
+                data7_i <= c_string(2 to 2);
                 
             when S11 =>
-                data0_i <= b"010101";
-                data1_i <= b"011011";
-                data2_i <= b"011000";
-                data3_i <= b"100000";
-                data4_i <= b"111101";
-                data5_i <= b"011000";
-                data6_i <= b"010101";
-                data7_i <= b"010101";
+                data0_i <= c_string(10 to 10);
+                data1_i <= c_string(9 to 9);
+                data2_i <= c_string(8 to 8);
+                data3_i <= c_string(7 to 7);
+                data4_i <= c_string(6 to 6);
+                data5_i <= c_string(5 to 5);
+                data6_i <= c_string(4 to 4);
+                data7_i <= c_string(3 to 3);
                 
             when S12 =>
-                data0_i <= b"001101";
-                data1_i <= b"010101";
-                data2_i <= b"011011";
-                data3_i <= b"011000";
-                data4_i <= b"100000";
-                data5_i <= b"111101";
-                data6_i <= b"011000";
-                data7_i <= b"010101";
+                data0_i <= c_string(11 to 11);
+                data1_i <= c_string(10 to 10);
+                data2_i <= c_string(9 to 9);
+                data3_i <= c_string(8 to 8);
+                data4_i <= c_string(7 to 7);
+                data5_i <= c_string(6 to 6);
+                data6_i <= c_string(5 to 5);
+                data7_i <= c_string(4 to 4);
                 
             when S13 =>
-                data0_i <= b"111100";
-                data1_i <= b"001101";
-                data2_i <= b"010101";
-                data3_i <= b"011011";
-                data4_i <= b"011000";
-                data5_i <= b"100000";
-                data6_i <= b"111101";
-                data7_i <= b"011000";
+                data0_i <= c_string(12 to 12);
+                data1_i <= c_string(11 to 11);
+                data2_i <= c_string(10 to 10);
+                data3_i <= c_string(9 to 9);
+                data4_i <= c_string(8 to 8);
+                data5_i <= c_string(7 to 7);
+                data6_i <= c_string(6 to 6);
+                data7_i <= c_string(5 to 5);
                 
             when S14 =>
-                data0_i <= b"111101";
-                data1_i <= b"111100";
-                data2_i <= b"001101";
-                data3_i <= b"010101";
-                data4_i <= b"011011";
-                data5_i <= b"011000";
-                data6_i <= b"100000";
-                data7_i <= b"111101";
+                data0_i <= c_space;
+                data1_i <= c_string(12 to 12);
+                data2_i <= c_string(11 to 11);
+                data3_i <= c_string(10 to 10);
+                data4_i <= c_string(9 to 9);
+                data5_i <= c_string(8 to 8);
+                data6_i <= c_string(7 to 7);
+                data7_i <= c_string(6 to 6);
                 
             when S15 =>
-                data0_i <= b"111101";
-                data1_i <= b"111101";
-                data2_i <= b"111100";
-                data3_i <= b"001101";
-                data4_i <= b"010101";
-                data5_i <= b"011011";
-                data6_i <= b"011000";
-                data7_i <= b"100000";
+                data0_i <= c_space;
+                data1_i <= c_space;
+                data2_i <= c_string(12 to 12);
+                data3_i <= c_string(11 to 11);
+                data4_i <= c_string(10 to 10);
+                data5_i <= c_string(9 to 9);
+                data6_i <= c_string(8 to 8);
+                data7_i <= c_string(7 to 7);
                 
             when S16 =>
-                data0_i <= b"111101";
-                data1_i <= b"111101";
-                data2_i <= b"111101";
-                data3_i <= b"111100";
-                data4_i <= b"001101";
-                data5_i <= b"010101";
-                data6_i <= b"011011";
-                data7_i <= b"011000";
+                data0_i <= c_space;
+                data1_i <= c_space;
+                data2_i <= c_space;
+                data3_i <= c_string(12 to 12);
+                data4_i <= c_string(11 to 11);
+                data5_i <= c_string(10 to 10);
+                data6_i <= c_string(9 to 9);
+                data7_i <= c_string(8 to 8);
                 
             when S17 =>
-                data0_i <= b"111101";
-                data1_i <= b"111101";
-                data2_i <= b"111101";
-                data3_i <= b"111101";
-                data4_i <= b"111100";
-                data5_i <= b"001101";
-                data6_i <= b"010101";
-                data7_i <= b"011011";
+                data0_i <= c_space;
+                data1_i <= c_space;
+                data2_i <= c_space;
+                data3_i <= c_space;
+                data4_i <= c_string(12 to 12);
+                data5_i <= c_string(11 to 11);
+                data6_i <= c_string(10 to 10);
+                data7_i <= c_string(9 to 9);
                 
             when S18 =>
-                data0_i <= b"111101";
-                data1_i <= b"111101";
-                data2_i <= b"111101";
-                data3_i <= b"111101";
-                data4_i <= b"111101";
-                data5_i <= b"111100";
-                data6_i <= b"001101";
-                data7_i <= b"010101";
+                data0_i <= c_space;
+                data1_i <= c_space;
+                data2_i <= c_space;
+                data3_i <= c_space;
+                data4_i <= c_space;
+                data5_i <= c_string(12 to 12);
+                data6_i <= c_string(11 to 11);
+                data7_i <= c_string(10 to 10);
                 
             when S19 =>
-                data0_i <= b"111101";
-                data1_i <= b"111101";
-                data2_i <= b"111101";
-                data3_i <= b"111101";
-                data4_i <= b"111101";
-                data5_i <= b"111101";
-                data6_i <= b"111100";
-                data7_i <= b"001101";
+                data0_i <= c_space;
+                data1_i <= c_space;
+                data2_i <= c_space;
+                data3_i <= c_space;
+                data4_i <= c_space;
+                data5_i <= c_space;
+                data6_i <= c_string(12 to 12);
+                data7_i <= c_string(11 to 11);
                 
             when S20 =>
-                data0_i <= b"111101";
-                data1_i <= b"111101";
-                data2_i <= b"111101";
-                data3_i <= b"111101";
-                data4_i <= b"111101";
-                data5_i <= b"111101";
-                data6_i <= b"111101";
-                data7_i <= b"111100";
+                data0_i <= c_space;
+                data1_i <= c_space;
+                data2_i <= c_space;
+                data3_i <= c_space;
+                data4_i <= c_space;
+                data5_i <= c_space;
+                data6_i <= c_space;
+                data7_i <= c_string(12 to 12);
                 
         end case;
     end process p_output_fsm;
