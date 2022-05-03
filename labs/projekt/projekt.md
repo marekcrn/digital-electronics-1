@@ -69,6 +69,8 @@ Funkcí vrstvy top je propojit signály z driveru s piny na desce Nexys A7 50T. 
 
 ![schema](images/schematic.png)
 
+![state_diagram](images/state_diagram.png)
+
 <a name="video"></a>
 
 ## Video
